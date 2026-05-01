@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)file:///C:/Users/karth/Downloads/Unbox%20Health%20%E2%80%94%20Candidate%20Introduction.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unbox Health — Candidate Introduction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="file:///C:/Users/karth/Downloads/Unbox%20Health%20%E2%80%94%20Candidate%20Introduction_files/css2" rel="stylesheet">
+<style>
+  /* ── RESET & BASE ───────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0C0C0C;
+    --surface:   #141414;
+    --surface2:  #1A1A1A;
+    --border:    #242424;
+    --accent:    #C8F135;
+    --accent2:   #8FB820;
+    --white:     #F0F0F0;
+    --muted:     #7A7A7A;
+    --dim:       #333333;
+    --danger:    #FF5252;
+
+    --font-display: 'Syne', sans-serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #080808;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+    font-family: var(--font-body);
+  }
+
+  /* ── SLIDE WRAPPER — A4 landscape proportions ───────────────── */
+  .slide {
+    width: 1122px;
+    height: 794px;
+    background: var(--bg);
+    display: grid;
+    grid-template-rows: 52px 1fr 40px;
+    grid-template-columns: 1fr 1px 1fr;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,.9);
+  }
+
+  /* Left accent edge */
+  .slide::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    z-index: 10;
+  }
+
+  /* Subtle noise texture overlay */
+  .slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────────────── */
+  header {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    background: #0E0E0E;
+    border-bottom: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px 0 28px;
+    z-index: 5;
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .logo-unbox { color: var(--white); }
+  .logo-health { color: var(--accent); }
+  .logo-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-bottom: 2px;
+    align-self: center;
+  }
+
+  .header-tags {
+    display: flex; gap: 8px; align-items: center;
+  }
+  .pill {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--accent);
+    border: 0.8px solid var(--accent);
+    border-radius: 20px;
+    padding: 3px 10px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .pill.dim {
+    color: var(--muted);
+    border-color: var(--dim);
+  }
+
+  /* ── DIVIDER (vertical) ─────────────────────────────────────── */
+  .v-divider {
+    grid-column: 2;
+    grid-row: 2;
+    background: var(--border);
+    width: 1px;
+    z-index: 5;
+  }
+
+  /* ── COLUMNS ────────────────────────────────────────────────── */
+  .col {
+    padding: 28px 32px 24px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .col-right { padding-left: 30px; }
+
+  /* ── SECTION LABEL ──────────────────────────────────────────── */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* ── HEADLINE ───────────────────────────────────────────────── */
+  .headline {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    color: var(--white);
+  }
+  .headline .hl { color: var(--accent); }
+
+  .subhead {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+
+  /* ── BODY TEXT ──────────────────────────────────────────────── */
+  .body-text {
+    font-size: 11px;
+    line-height: 1.65;
+    color: #CCCCCC;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+  .body-text b { color: var(--accent); font-weight: 500; }
+
+  /* ── USP BOX ────────────────────────────────────────────────── */
+  .usp-box {
+    background: linear-gradient(135deg, #0F1A00 0%, #141A02 100%);
+    border: 0.8px solid var(--accent2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .usp-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    border-radius: 10px 0 0 10px;
+  }
+  .usp-label {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .usp-text {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #D0D0D0;
+    font-weight: 300;
+  }
+  .usp-text b { color: var(--white); font-weight: 500; }
+
+  /* ── STAT BLOCKS ────────────────────────────────────────────── */
+  .stats-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .stat-block {
+    flex: 1;
+    background: var(--surface2);
+    border: 0.6px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 10px 10px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── RIGHT COLUMN ────────────────────────────────────────────── */
+  .candidate-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .candidate-name .hl { color: var(--accent); }
+
+  .candidate-role {
+    font-size: 9.5px;
+    color: var(--muted);
+    letter-spacing: 0.07em;
+    font-family: var(--font-mono);
+    margin-bottom: 16px;
+  }
+
+  /* Fit cards grid */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .fit-card {
+    background: var(--surface);
+    border: 0.6px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .fit-card:hover { border-color: var(--accent2); }
+
+  .fit-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .fit-card:hover::after { opacity: 1; }
+
+  .fit-card.wide {
+    grid-column: 1 / 3;
+  }
+
+  .card-icon {
+    font-size: 16px;
+    margin-bottom: 2px;
+    line-height: 1;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .card-desc {
+    font-size: 9.5px;
+    line-height: 1.5;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .card-desc b { color: #BBBBBB; font-weight: 400; }
+
+  .card-tag {
+    display: inline-block;
+    margin-top: 3px;
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    color: var(--accent2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────────────── */
+  footer {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    background: #090909;
+    border-top: 0.8px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px 0 28px;
+    z-index: 5;
+  }
+  .footer-link {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .footer-mid {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .footer-right {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--muted);
+  }
+
+  /* ── PRINT STYLES ────────────────────────────────────────────── */
+  @media print {
+    html, body { background: none; display: block; }
+    .slide {
+      width: 297mm; height: 210mm;
+      box-shadow: none;
+    }
+    .fit-card:hover { border-color: var(--border); }
+    .fit-card:hover::after { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="slide">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <span class="logo-unbox">UNBOX</span>
+      <span class="logo-health">HEALTH</span>
+    </div>
+    <div class="header-tags">
+      <span class="pill">#FactsOverOpinions</span>
+      <span class="pill dim">Candidate Deck · 2025</span>
+    </div>
+  </header>
+
+  <!-- LEFT COLUMN: About Unbox -->
+  <div class="col">
+    <div class="section-label">About UNBOX HEALTH</div>
+
+    <div class="headline">No opinions.<br><span class="hl">Only facts.</span></div>
+    <div class="subhead">India's first independent ratings platform for foods &amp; supplements</div>
+
+    <p class="body-text">
+      Unbox Health tests packaged foods and health supplements through
+      <b>NABL-accredited labs</b> — sourcing every product directly from open
+      markets, never from brands. Each product is graded on three objective
+      criteria: <b>Label Accuracy</b>, <b>Non-Toxicity</b>, and
+      <b>Nutritional Profile</b>, producing a final rating of D to A+.
+      All lab reports are public.
+    </p>
+
+    <div class="usp-box">
+      <div class="usp-label">The Unmarked USP</div>
+      <p class="usp-text">
+        No expert panels. No influencer endorsements. No brand involvement.
+        Unbox runs on <b>zero opinion</b> — ratings emerge purely from lab data
+        mapped against FSSAI &amp; ICMR benchmarks. This radical factfulness is
+        the brand's most powerful differentiator — and its most under-marketed one.
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-block">
+        <div class="stat-number">D→A+</div>
+        <div class="stat-label">Rating Scale</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">300+</div>
+        <div class="stat-label">Brands Rated</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Tier-1 Labs</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Score Pillars</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERTICAL DIVIDER -->
+  <div class="v-divider"></div>
+
+  <!-- RIGHT COLUMN: Candidate -->
+  <div class="col col-right">
+    <div class="section-label">Why Kalyan Belongs Here</div>
+
+    <div class="candidate-name">Build. Figure<br>Out. <span class="hl">Repeat.</span></div>
+    <div class="candidate-role">Founder's Office · Operations &amp; Growth</div>
+
+    <div class="fit-grid">
+
+      <div class="fit-card">
+        <div class="card-icon">🧬</div>
+        <div class="card-title">Biotech Foundation</div>
+        <p class="card-desc">B.Sc. Biotechnology — natural fluency in how <b>health, nutrition &amp; product claims</b> connect to science. Not a generalist walking in blind.</p>
+        <span class="card-tag">Logic × Scientific Evidence</span>
+      </div>
+
+      <div class="fit-card">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">Built From Zero</div>
+        <p class="card-desc">Spearheaded <b>Gostudy</b> — built the entire test-prep enterprise: sales, ops, marketing, team training &amp; customer support. No playbook, all execution.</p>
+        <span class="card-tag">End-to-End Ops</span>
+      </div>
+
+      <div class="fit-card">
+        <div class="card-icon">🥗</div>
+        <div class="card-title">Healthcare Adjacent</div>
+        <p class="card-desc"><b>Dietitian Academy</b> along with tutoring services it also delivers clinical nutrition consulting &amp; wellness diet plans — bridging consumer health and real service delivery.</p>
+        <span class="card-tag">Health × Commerce</span>
+      </div>
+
+      <div class="fit-card">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">Mission-Aligned</div>
+        <p class="card-desc">Active research into <b>microplastic exposure</b> in sanitary products — independently investigating how brands mislead through marketing while building a net zero carbon solution. Same mission, different domain.</p>
+        <span class="card-tag">Consumer Safety</span>
+      </div>
+
+      <div class="fit-card wide">
+        <div class="card-icon">🗺️</div>
+        <div class="card-title">The No-Guidebook Operator</div>
+        <p class="card-desc">At <b>ALL TIMES</b> and across ventures, routinely solved problems with no precedent. Comfortable designing processes, teams, and systems from scratch — love working in early-stage, category-defining spaces.</p>
+        <span class="card-tag">Ambiguity → Clarity</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-link">kalyan.official.792@gmail.com</span>
+    <span class="footer-mid">Transparency · Autonomy · Factfulness</span>
+    <span class="footer-right">One Brand · Zero Influence · One Mission</span>
+  </footer>
+
+</div>
+
+
+
+</body></html>
