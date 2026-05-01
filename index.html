@@ -195,10 +195,11 @@
     background: linear-gradient(135deg, #0F1A00 0%, #141A02 100%);
     border: 0.8px solid var(--accent2);
     border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    flex-shrink: 0;
   }
   .usp-box::before {
     content: '';
@@ -210,15 +211,15 @@
   }
   .usp-label {
     font-family: var(--font-mono);
-    font-size: 8px;
+    font-size: 9px;
     color: var(--accent);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
   }
   .usp-text {
-    font-size: 10.5px;
-    line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.65;
     color: #D0D0D0;
     font-weight: 300;
   }
@@ -229,22 +230,34 @@
     display: flex;
     gap: 8px;
     margin-top: 4px;
+    align-items: stretch;
+    height: 110px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
   }
   .stat-block {
-    flex: 1;
     background: var(--surface2);
     border: 0.6px solid var(--border);
     border-radius: 8px;
-    padding: 12px 10px 10px;
+    padding: 6px 4px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .stat-number {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--accent);
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .stat-label {
     font-family: var(--font-mono);
@@ -252,6 +265,27 @@
     color: var(--muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+  .stat-block-vertical {
+    background: var(--surface2);
+    border: 0.6px solid var(--accent2);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    flex-shrink: 0;
+  }
+  .stat-block-vertical .stat-number {
+    font-size: 28px;
+  }
+  .stat-block-vertical .stat-label {
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
   }
 
   /* ── RIGHT COLUMN ────────────────────────────────────────────── */
@@ -427,21 +461,27 @@
     </div>
 
     <div class="stats-row">
-      <div class="stat-block">
-        <div class="stat-number">D→A+</div>
-        <div class="stat-label">Rating Scale</div>
+      <div class="stats-grid">
+        <div class="stat-block">
+          <div class="stat-number">D→A+</div>
+          <div class="stat-label">Rating Scale</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">300+</div>
+          <div class="stat-label">Brands Rated</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Tier-1 Labs</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Score Pillars</div>
+        </div>
       </div>
-      <div class="stat-block">
-        <div class="stat-number">300+</div>
-        <div class="stat-label">Brands Rated</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-number">5</div>
-        <div class="stat-label">Tier-1 Labs</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Score Pillars</div>
+      <div class="stat-block-vertical">
+        <div class="stat-number">1</div>
+        <div class="stat-label">BRAND</div>
       </div>
     </div>
   </div>
